@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/freecode-03/static/css/main.e6c13ad2.css",
+    "main.js": "/freecode-03/static/js/main.661a2ce1.js",
+    "index.html": "/freecode-03/index.html",
+    "main.e6c13ad2.css.map": "/freecode-03/static/css/main.e6c13ad2.css.map",
+    "main.661a2ce1.js.map": "/freecode-03/static/js/main.661a2ce1.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.e6c13ad2.css",
+    "static/js/main.661a2ce1.js"
+  ]
+}
