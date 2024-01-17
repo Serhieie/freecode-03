@@ -1,16 +1,30 @@
-export const DrumPad = () => {
+import { DrumPad, DrumPadsDisplay } from "./DrumPadSquer.styled";
+import React, { useEffect } from "react";
+export const DrumPadSquer = ({ handleClick, color, volume, drumPadsData }) => {
+  useEffect(() => {
+    const setVolumeForAllAudioElements = () => {
+      const audioElements = document.querySelectorAll(".drum-pad audio");
+      audioElements.forEach((audioElement) => {
+        audioElement.volume = volume;
+      });
+    };
+    setVolumeForAllAudioElements();
+  }, [volume]);
+
   return (
-    <div
-      class="drum-pad"
-      id="Open-HH"
-      style={{ backgroundColor: "grey", marginTop: "10", boxShadow: "black 3px 3px 5px" }}
-    >
-      <audio
-        class="clip"
-        id="D"
-        src="https://s3.amazonaws.com/freecodecamp/drums/Dsc_Oh.mp3"
-      ></audio>
-      D
-    </div>
+    <DrumPadsDisplay color={color}>
+      {drumPadsData.map(({ id, key, audioSrc }) => (
+        <DrumPad
+          className="drum-pad"
+          key={id}
+          onClick={() => handleClick(id)}
+          id={id}
+          color={color}
+        >
+          <audio className="clip" id={key} src={audioSrc} volume={volume}></audio>
+          {key}
+        </DrumPad>
+      ))}
+    </DrumPadsDisplay>
   );
 };

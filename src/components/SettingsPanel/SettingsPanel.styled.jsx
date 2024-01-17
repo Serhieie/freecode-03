@@ -1,17 +1,67 @@
 import styled from "@emotion/styled";
 
-export const EditorWrapper = styled.div`
+export const SettingsPanelStyled = styled.div`
+  background-color: #334155;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  border-radius: 2px;
-  padding: 0px 20px;
-  margin-bottom: 20px;
-  margin-top: 20px;
-  box-shadow: 0px 0px 10px rgb(54, 103, 54);
+  width: 300px;
+  height: 300px;
+  border-radius: 10px;
+  margin: 80px auto;
+  padding: 20px;
+  gap: 10px;
+  box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.6);
+  user-select: none;
 
   @media (max-width: 768px) {
+    margin: 0;
     gap: 4px;
-    padding: 0px 10px;
+    padding: 10px;
+  }
+`;
+
+export const Display = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background-color: ${(props) => (props.isTurnedOn ? "#a0a6af" : "#52565c")};
+  border: 1px solid rgba(0, 0, 0, 0.4);
+  border-radius: 4px;
+
+  color: rgba(0, 0, 0, 0.6);
+
+  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.7);
+
+  font-size: 24px;
+  width: 190px;
+  height: 40px;
+
+  margin: 0 auto;
+  margin-top: 36px;
+  padding: 0;
+`;
+
+export const ChangeColorButton = styled.button`
+  background-color: #1e293b;
+  color: #a0a6af;
+  border-radius: 4px;
+  font-size: 10px;
+  width: 80px;
+  height: 28px;
+  border: none;
+  outline: none;
+  user-select: none;
+  cursor: pointer;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.6);
+
+  margin-top: auto;
+  margin-left: auto;
+
+  @media (max-width: 768px) {
+    width: 120px;
+    height: 40px;
+    margin: 0 auto;
+    margin-top: 30px;
   }
 `;

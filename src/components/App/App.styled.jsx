@@ -1,17 +1,25 @@
 import styled from "@emotion/styled";
 
-export const EditorWrapper = styled.div`
+export const DrumMachineStyles = styled.div`
+  position: relative;
+  background-color: #475569;
   display: flex;
-  flex-direction: column;
   align-items: center;
+  justify-content: center;
+  width: 700px;
+  height: 360px;
   border-radius: 2px;
-  padding: 0px 20px;
-  margin-bottom: 20px;
-  margin-top: 20px;
-  box-shadow: 0px 0px 10px rgb(54, 103, 54);
+  margin: 150px auto;
+  padding: 14px;
+  gap: 10px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
 
   @media (max-width: 768px) {
+    margin: 20px auto;
+    padding: 10px;
+    height: 700px;
+    width: 360px;
     gap: 4px;
-    padding: 0px 10px;
+    flex-direction: column-reverse;
   }
 `;
