@@ -62,7 +62,7 @@ export const DrumPadSquer: React.FC = () => {
           id={id}
           color={color}
         >
-          <audio className="clip" id={keyToCheck} src={audioSrc}></audio>
+          <audio className="clip" id={key} data-id={keyToCheck} src={audioSrc}></audio>
           {key}
         </DrumPad>
       ))}

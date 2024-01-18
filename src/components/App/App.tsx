@@ -24,7 +24,7 @@ export const App: React.FC = () => {
   useEffect(() => {
     const handleKeyDown = (e: React.KeyboardEvent) => {
       const audioId = e.code.toUpperCase();
-      const audioElement = document.getElementById(audioId);
+      const audioElement = document.querySelector(`audio[data-id="${audioId}"]`);
 
       if (!isTurnedOn && audioElement) {
         dispatch(addActiveDrumPad(""));
@@ -51,7 +51,7 @@ export const App: React.FC = () => {
   useEffect(() => {
     const handleKeyUp = (e: React.KeyboardEvent) => {
       const audioId = e.code.toUpperCase();
-      const audioElement = document.getElementById(audioId);
+      const audioElement = document.querySelector(`audio[data-id="${audioId}"]`);
 
       if (audioElement instanceof HTMLAudioElement) {
         const parentElement = audioElement.parentNode as HTMLElement;
