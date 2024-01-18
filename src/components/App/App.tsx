@@ -4,7 +4,6 @@ import { useSelector, useDispatch } from "react-redux";
 import { DrumPadSquer } from "../DrumPadSquer/DrumPadSquer";
 import SettingsPanel from "../SettingsPanel/SettingsPanel";
 import { useKeyPress } from "../../hooks/useKeyPress";
-import { useTouchEvent } from "../../hooks/useTouchEvent";
 import {
   getColor,
   getIsTurnedOn,
@@ -66,31 +65,6 @@ export const App: React.FC = () => {
   );
 
   useKeyPress("keydown", handleKeyDown, [handleKeyDown]);
-
-  // Touch Start
-  const handleTouchStart = useCallback(
-    (e: TouchEvent) => {
-      const touchId = e.touches[0].identifier;
-      const audioElement = document.querySelector(`audio[data-id="${touchId}"]`);
-
-      if (!isTurnedOn && audioElement) {
-        dispatch(addActiveDrumPad(""));
-        const parentElement = audioElement.parentNode as HTMLElement;
-        parentElement.style.boxShadow = "1px 1px 2px rgba(0, 0, 0, 0.8)";
-        return;
-      }
-
-      if (audioElement instanceof HTMLAudioElement) {
-        const parentElement = audioElement.parentNode as HTMLElement;
-        parentElement.style.backgroundColor = "#1e293b";
-        parentElement.style.color = color;
-        parentElement.style.boxShadow = `1px 0px 8px ${color}`;
-      }
-    },
-    [color, dispatch, isTurnedOn]
-  );
-
-  useTouchEvent("touchstart", handleTouchStart);
 
   return (
     <DrumMachineStyles id="drum-machine" color={color}>

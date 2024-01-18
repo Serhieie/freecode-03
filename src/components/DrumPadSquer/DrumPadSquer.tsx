@@ -61,6 +61,7 @@ export const DrumPadSquer: React.FC = () => {
           onClick={() => handleClick(id)}
           id={id}
           color={color}
+          data-chose={keyToCheck}
         >
           <audio className="clip" id={key} data-id={keyToCheck} src={audioSrc}></audio>
           {key}
