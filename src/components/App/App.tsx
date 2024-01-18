@@ -73,24 +73,6 @@ export const App: React.FC = () => {
       const touchId = e.touches[0].identifier;
       const audioElement = document.querySelector(`audio[data-id="${touchId}"]`);
 
-      if (audioElement instanceof HTMLAudioElement) {
-        const parentElement = audioElement.parentNode as HTMLElement;
-        parentElement.style.backgroundColor = "#1e293b";
-        parentElement.style.color = color;
-        parentElement.style.boxShadow = `1px 0px 8px ${color}`;
-      }
-    },
-    [color]
-  );
-
-  useTouchEvent("touchstart", handleTouchStart);
-
-  // Touch End
-  const handleTouchEnd = useCallback(
-    (e: TouchEvent) => {
-      const touchId = e.changedTouches[0].identifier;
-      const audioElement = document.querySelector(`audio[data-id="${touchId}"]`);
-
       if (!isTurnedOn && audioElement) {
         dispatch(addActiveDrumPad(""));
         const parentElement = audioElement.parentNode as HTMLElement;
@@ -100,17 +82,15 @@ export const App: React.FC = () => {
 
       if (audioElement instanceof HTMLAudioElement) {
         const parentElement = audioElement.parentNode as HTMLElement;
-        dispatch(addActiveDrumPad(parentElement.id));
-        parentElement.style.backgroundColor = color;
-        parentElement.style.color = "white";
-        audioElement.currentTime = 0;
-        audioElement.play();
+        parentElement.style.backgroundColor = "#1e293b";
+        parentElement.style.color = color;
+        parentElement.style.boxShadow = `1px 0px 8px ${color}`;
       }
     },
     [color, dispatch, isTurnedOn]
   );
 
-  useTouchEvent("touchend", handleTouchEnd);
+  useTouchEvent("touchstart", handleTouchStart);
 
   return (
     <DrumMachineStyles id="drum-machine" color={color}>
