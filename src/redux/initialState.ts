@@ -18,7 +18,7 @@ export interface DrumMachineState {
 
 export const initialState: DrumMachineState = {
   color: "lightgreen",
-  volume: 0.6,
+  volume: 0.5,
   isTurnedOn: true,
   activeDrumPad: "",
   dataSounds: drumPadsDataFreeCode,
