@@ -8,7 +8,7 @@ declare module "*.png" {
   export default content;
 }
 
-declare module "*.wav" {
+declare module "*.mp3" {
   const content: any;
   export default content;
 }
