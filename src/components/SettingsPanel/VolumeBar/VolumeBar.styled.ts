@@ -18,6 +18,7 @@ export const VerticalSliderContainer = styled.div<VerticalSliderContainerProps>`
     position: absolute;
     transform: rotate(90deg);
     @media (max-width: 768px) {
+      bottom: -6px;
       transform: rotate(0deg);
     }
   }
@@ -28,6 +29,7 @@ export const VerticalSliderContainer = styled.div<VerticalSliderContainerProps>`
     transform: rotate(90deg);
 
     @media (max-width: 768px) {
+      bottom: -6px;
       transform: rotate(0deg);
     }
   }

@@ -5,18 +5,20 @@ export const RadioContainer = styled.div`
   border: none;
   position: absolute;
   top: 58%;
-  left: 55%;
+  left: 48%;
   transform: translate(50%, -50%);
   margin: 0 auto;
   margin-top: 10px;
-
   display: flex;
   justify-content: center;
   flex-direction: column;
+  flex-wrap: wrap;
+  height: 80px;
   gap: 8px;
 
   @media (max-width: 768px) {
     position: static;
+    width: 240px;
     top: 0%;
     left: 0%;
     transform: translate(0, 0);

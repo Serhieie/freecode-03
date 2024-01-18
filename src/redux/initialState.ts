@@ -4,6 +4,7 @@ export interface Sound {
   id: string;
   key: string;
   audioSrc: string;
+  keyToCheck: string;
 }
 
 export interface DrumMachineState {

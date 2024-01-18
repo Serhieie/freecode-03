@@ -54,7 +54,7 @@ export const DrumPadSquer: React.FC = () => {
 
   return (
     <DrumPadsDisplay color={color}>
-      {dataSounds.map(({ id, key, audioSrc }) => (
+      {dataSounds.map(({ id, key, audioSrc, keyToCheck }) => (
         <DrumPad
           className="drum-pad"
           key={id}
@@ -62,7 +62,7 @@ export const DrumPadSquer: React.FC = () => {
           id={id}
           color={color}
         >
-          <audio className="clip" id={key} src={audioSrc}></audio>
+          <audio className="clip" id={keyToCheck} src={audioSrc}></audio>
           {key}
         </DrumPad>
       ))}

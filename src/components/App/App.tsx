@@ -23,7 +23,7 @@ export const App: React.FC = () => {
   //Key up
   useEffect(() => {
     const handleKeyDown = (e: React.KeyboardEvent) => {
-      const audioId = e.key.toUpperCase();
+      const audioId = e.code.toUpperCase();
       const audioElement = document.getElementById(audioId);
 
       if (!isTurnedOn && audioElement) {
@@ -50,7 +50,7 @@ export const App: React.FC = () => {
   //Key Down
   useEffect(() => {
     const handleKeyUp = (e: React.KeyboardEvent) => {
-      const audioId = e.key.toUpperCase();
+      const audioId = e.code.toUpperCase();
       const audioElement = document.getElementById(audioId);
 
       if (audioElement instanceof HTMLAudioElement) {

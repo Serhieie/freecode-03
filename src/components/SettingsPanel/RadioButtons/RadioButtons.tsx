@@ -3,6 +3,9 @@ import {
   drumPadsDataFreeCode,
   drumPadsDataTom,
   drumPadsDataPerc,
+  drumPadsDataClap,
+  drumPadsDataOpenhat,
+  drumPadsDataMixed,
 } from "../../../constants/constants";
 import { useDispatch, useSelector } from "react-redux";
 import {
@@ -24,6 +27,15 @@ export const RadioButtons: React.FC = () => {
       case "perc":
         dispatch(changeCheckedRadio(value));
         return dispatch(changeDataSounds(drumPadsDataPerc));
+      case "clap":
+        dispatch(changeCheckedRadio(value));
+        return dispatch(changeDataSounds(drumPadsDataClap));
+      case "openhat":
+        dispatch(changeCheckedRadio(value));
+        return dispatch(changeDataSounds(drumPadsDataOpenhat));
+      case "mixed":
+        dispatch(changeCheckedRadio(value));
+        return dispatch(changeDataSounds(drumPadsDataMixed));
       default:
         dispatch(changeCheckedRadio(value));
         return dispatch(changeDataSounds(drumPadsDataFreeCode));
@@ -63,6 +75,39 @@ export const RadioButtons: React.FC = () => {
           checked={activeRadio === "perc"}
         />
         Perc
+      </RadioLabel>
+      <RadioLabel>
+        <RadioInput
+          onChange={handleDrumTypeChange}
+          id="Clap"
+          type="radio"
+          name="drumType"
+          value="clap"
+          checked={activeRadio === "clap"}
+        />
+        Clap
+      </RadioLabel>
+      <RadioLabel>
+        <RadioInput
+          onChange={handleDrumTypeChange}
+          id="Openhat"
+          type="radio"
+          name="drumType"
+          value="openhat"
+          checked={activeRadio === "openhat"}
+        />
+        Openhat
+      </RadioLabel>
+      <RadioLabel>
+        <RadioInput
+          onChange={handleDrumTypeChange}
+          id="Mixed"
+          type="radio"
+          name="drumType"
+          value="mixed"
+          checked={activeRadio === "mixed"}
+        />
+        Mixed
       </RadioLabel>
     </RadioContainer>
   );
