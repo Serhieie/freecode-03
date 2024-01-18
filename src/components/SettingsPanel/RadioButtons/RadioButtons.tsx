@@ -4,17 +4,29 @@ import {
   drumPadsDataTom,
   drumPadsDataPerc,
 } from "../../../constants/constants";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  changeDataSounds,
+  getCheckedRadio,
+  changeCheckedRadio,
+} from "../../../redux/drumMachineSlice";
 
-export const RadioButtons = ({ setDataSounds }) => {
-  const handleDrumTypeChange = (e) => {
+export const RadioButtons: React.FC = () => {
+  const dispatch = useDispatch();
+  const activeRadio = useSelector(getCheckedRadio);
+
+  const handleDrumTypeChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
     switch (value) {
       case "tom":
-        return setDataSounds(drumPadsDataTom);
+        dispatch(changeCheckedRadio(value));
+        return dispatch(changeDataSounds(drumPadsDataTom));
       case "perc":
-        return setDataSounds(drumPadsDataPerc);
+        dispatch(changeCheckedRadio(value));
+        return dispatch(changeDataSounds(drumPadsDataPerc));
       default:
-        return setDataSounds(drumPadsDataFreeCode);
+        dispatch(changeCheckedRadio(value));
+        return dispatch(changeDataSounds(drumPadsDataFreeCode));
     }
   };
   return (
@@ -26,7 +38,7 @@ export const RadioButtons = ({ setDataSounds }) => {
           type="radio"
           name="drumType"
           value="basic"
-          defaultChecked
+          checked={activeRadio === "basic"}
         />
         Basic
       </RadioLabel>
@@ -37,6 +49,7 @@ export const RadioButtons = ({ setDataSounds }) => {
           type="radio"
           name="drumType"
           value="tom"
+          checked={activeRadio === "tom"}
         />
         Tom
       </RadioLabel>
@@ -47,6 +60,7 @@ export const RadioButtons = ({ setDataSounds }) => {
           type="radio"
           name="drumType"
           value="perc"
+          checked={activeRadio === "perc"}
         />
         Perc
       </RadioLabel>

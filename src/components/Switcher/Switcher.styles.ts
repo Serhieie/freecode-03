@@ -1,6 +1,13 @@
 import styled from "@emotion/styled";
 
-export const SwitcherStyles = styled.div`
+interface SwitcherStylesProps {
+  isTurnedOn: boolean;
+}
+
+export const SwitcherStyles =
+  styled.div <
+  SwitcherStylesProps >
+  `
   margin-left: auto;
   background-color: #1e293b;
   width: 50px;
@@ -9,21 +16,27 @@ export const SwitcherStyles = styled.div`
   padding: 1px;
   transition: background-color 0.3s;
   z-index: 99;
- box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);
+  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);
 
-    .indicator {
-      background-color: #334155;
-      width: 16px;
-      height: 16px;
-      border-radius: 50%;
-     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-      transition: transform 0.3s;
-      transform: translateX(${(props) => (props.isTurnedOn ? "26px" : "-4px")});
-    }
+  .indicator {
+    background-color: #334155;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s;
+    transform: translateX(${(props) => (props.isTurnedOn ? "26px" : "-4px")});
   }
 `;
 
-export const SwitchButton = styled.button`
+interface SwitchButtonProps {
+  color: string;
+}
+
+export const SwitchButton =
+  styled.button <
+  SwitchButtonProps >
+  `
   outline: none;
   transition: all 300ms ease-in-out;
   color: #475569;

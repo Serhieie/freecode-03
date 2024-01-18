@@ -1,6 +1,7 @@
 import styled from "@emotion/styled";
+import { VerticalSliderContainerProps, VolumeInputProps } from "./VolumeBar.types";
 
-export const VerticalSliderContainer = styled.div`
+export const VerticalSliderContainer = styled.div<VerticalSliderContainerProps>`
   display: flex;
   height: 48px;
   transform: rotate(270deg);
@@ -11,7 +12,7 @@ export const VerticalSliderContainer = styled.div`
   margin-right: 14px;
 
   .volumeUp {
-    color: ${(props) => (props.volume >= 0.9 ? `${props.color}` : "#a0a6af")};
+    color: #a0a6af;
     right: 0;
     bottom: 2px;
     position: absolute;
@@ -21,7 +22,7 @@ export const VerticalSliderContainer = styled.div`
     }
   }
   .volumeDown {
-    color: ${(props) => (props.volume <= 0.1 ? `${props.color}` : "#a0a6af")};
+    color: #a0a6af;
     bottom: 2px;
     position: absolute;
     transform: rotate(90deg);
@@ -38,7 +39,7 @@ export const VerticalSliderContainer = styled.div`
   }
 `;
 
-export const VolumeInput = styled.input`
+export const VolumeInput = styled.input<VolumeInputProps>`
   -webkit-appearance: none;
   box-shadow: inset 0 0 2px rgba(0, 0, 0, 0.5);
   background-color: #1e293b;

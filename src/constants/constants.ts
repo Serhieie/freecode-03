@@ -1,3 +1,4 @@
+import { Sound } from "../redux/initialState";
 import Tom1 from "../sounds/tom-808.wav";
 import Tom2 from "../sounds/tom-acoustic01.wav";
 import Tom3 from "../sounds/tom-acoustic02.wav";
@@ -17,7 +18,7 @@ import Perc7 from "../sounds/perc-short.wav";
 import Perc8 from "../sounds/perc-tambo.wav";
 import Perc9 from "../sounds/perc-tribal.wav";
 
-export const drumPadsDataFreeCode = [
+export const drumPadsDataFreeCode: Sound[] = [
   {
     id: "Heater-1",
     key: "Q",
@@ -65,7 +66,7 @@ export const drumPadsDataFreeCode = [
   },
 ];
 
-export const drumPadsDataTom = [
+export const drumPadsDataTom: Sound[] = [
   {
     id: "Tom-808",
     key: "Q",
@@ -113,7 +114,7 @@ export const drumPadsDataTom = [
   },
 ];
 
-export const drumPadsDataPerc = [
+export const drumPadsDataPerc: Sound[] = [
   {
     id: "Tom-808",
     key: "Q",

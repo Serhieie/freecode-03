@@ -1,6 +1,12 @@
 import styled from "@emotion/styled";
 
-export const SettingsPanelStyled = styled.div`
+interface SettingsPanelStyledProps {
+  color: string;
+  volume: number;
+  isTurnedOn: boolean;
+}
+
+export const SettingsPanelStyled = styled.div<SettingsPanelStyledProps>`
   background-color: #334155;
   display: flex;
   flex-direction: column;
@@ -20,7 +26,11 @@ export const SettingsPanelStyled = styled.div`
   }
 `;
 
-export const Display = styled.div`
+interface DisplayProps {
+  isTurnedOn: boolean;
+}
+
+export const Display = styled.div<DisplayProps>`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -43,6 +53,7 @@ export const Display = styled.div`
 `;
 
 export const ChangeColorButton = styled.button`
+  font-family: "Electrolize", sans-serif;
   background-color: #1e293b;
   color: #a0a6af;
   border-radius: 4px;
