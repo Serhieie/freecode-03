@@ -1,3 +1,4 @@
+import { useState, useEffect } from "react";
 import { VolumeInput, VerticalSliderContainer } from "./VolumeBar.styled";
 import { FaVolumeHigh, FaVolumeXmark } from "react-icons/fa6";
 import { useDispatch } from "react-redux";
@@ -6,6 +7,7 @@ import { VolumeBarProps } from "./VolumeBar.types";
 
 export const VolumeBar: React.FC<VolumeBarProps> = ({ isTurnedOn, volume, color }) => {
   const dispatch = useDispatch();
+  const [displayMessage, setDisplayMessage] = useState<string | null>(null);
 
   const onVolumeChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     let displayVol = Math.ceil(volume * 100);
@@ -16,13 +18,22 @@ export const VolumeBar: React.FC<VolumeBarProps> = ({ isTurnedOn, volume, color 
     }
 
     if (isTurnedOn) {
+      setDisplayMessage(`Volume: ${displayVol}`);
       dispatch(addActiveDrumPad(`Volume: ${displayVol}`));
     }
     dispatch(changeVolume(Number(e.target.value)));
-    setTimeout(() => {
-      dispatch(addActiveDrumPad(""));
-    }, 700);
   };
+
+  useEffect(() => {
+    if (isTurnedOn && displayMessage) {
+      const timeoutId = setTimeout(() => {
+        dispatch(addActiveDrumPad(""));
+        setDisplayMessage(null);
+      }, 1000);
+
+      return () => clearTimeout(timeoutId);
+    }
+  }, [isTurnedOn, displayMessage, dispatch]);
 
   return (
     <VerticalSliderContainer color={color} volume={volume}>
