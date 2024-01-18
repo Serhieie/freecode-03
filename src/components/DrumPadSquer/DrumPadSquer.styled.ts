@@ -39,7 +39,7 @@ export const DrumPadsDisplay = styled.div`
     margin: 0;
     margin-top: 20px;
     padding: 0;
-    gap: 4px;
+    gap: 12px;
     padding: 10px;
   }
 `;
