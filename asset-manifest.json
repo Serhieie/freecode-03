@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/freecode-03/static/css/main.a1bdacf5.css",
-    "main.js": "/freecode-03/static/js/main.c12cd4c8.js",
+    "main.js": "/freecode-03/static/js/main.6dd2a460.js",
     "static/media/crash-noise.mp3": "/freecode-03/static/media/crash-noise.372262dc9a7fb97c18b9.mp3",
     "static/media/crash-acoustic.mp3": "/freecode-03/static/media/crash-acoustic.6b6fc5609aa8ac7a61fa.mp3",
     "static/media/crash-tape.mp3": "/freecode-03/static/media/crash-tape.f0cbcf039f6477e2c259.mp3",
@@ -49,10 +49,10 @@
     "static/media/perc-short.mp3": "/freecode-03/static/media/perc-short.3b953580905cd342df12.mp3",
     "index.html": "/freecode-03/index.html",
     "main.a1bdacf5.css.map": "/freecode-03/static/css/main.a1bdacf5.css.map",
-    "main.c12cd4c8.js.map": "/freecode-03/static/js/main.c12cd4c8.js.map"
+    "main.6dd2a460.js.map": "/freecode-03/static/js/main.6dd2a460.js.map"
   },
   "entrypoints": [
     "static/css/main.a1bdacf5.css",
-    "static/js/main.c12cd4c8.js"
+    "static/js/main.6dd2a460.js"
   ]
 }
