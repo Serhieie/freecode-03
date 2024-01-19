@@ -3,21 +3,16 @@ import { LuPowerOff, LuPower } from "react-icons/lu";
 import { ReactNode } from "react";
 
 interface SwitcherProps {
-  toggleVolume: () => void;
-  setIsTurnedOn?: () => void;
+  togglePower: () => void;
   isTurnedOn: boolean;
   color: string;
   children?: ReactNode;
 }
 
-export const Switcher: React.FC<SwitcherProps> = ({
-  toggleVolume,
-  isTurnedOn,
-  color,
-}) => {
+export const Switcher: React.FC<SwitcherProps> = ({ togglePower, isTurnedOn, color }) => {
   return (
     <SwitcherStyles isTurnedOn={isTurnedOn} color={color}>
-      <SwitchButton onClick={toggleVolume} color={color}>
+      <SwitchButton onClick={togglePower} color={color} isTurnedOn={isTurnedOn}>
         {isTurnedOn ? (
           <LuPowerOff className="volumeMute" size={14} />
         ) : (

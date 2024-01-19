@@ -1,6 +1,12 @@
 import styled from "@emotion/styled";
 
-export const DrumPad = styled.div`
+interface DrumPadProps {
+  color: string;
+  isTurnedOn: boolean;
+  isPressed: boolean;
+}
+
+export const DrumPad = styled.div<DrumPadProps>`
   background-color: #1e293b;
   font-family: "Bebas Neue", sans-serif;
   font-size: 26px;

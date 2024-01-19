@@ -1,4 +1,5 @@
 import { Switcher } from "../../Switcher/Switcher";
+
 import { Title, TitleLine } from "./SettingsHead.styled";
 import { useDispatch, useSelector } from "react-redux";
 import {
@@ -24,15 +25,10 @@ export const SettingsHead: React.FC<SettingsHeadProps> = ({ color }) => {
 
   return (
     <TitleLine>
-      <Title>Serhieie Drum Machine </Title>
-      <Switcher
-        toggleVolume={togglePower}
-        setIsTurnedOn={() => {
-          dispatch(toggleIsTurnedOn());
-        }}
-        isTurnedOn={isTurnedOn}
-        color={color}
-      />
+      <Title isTurnedOn={isTurnedOn} color={color}>
+        Serhieie Drum Machine{" "}
+      </Title>
+      <Switcher togglePower={togglePower} isTurnedOn={isTurnedOn} color={color} />
     </TitleLine>
   );
 };

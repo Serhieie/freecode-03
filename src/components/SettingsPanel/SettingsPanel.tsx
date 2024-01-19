@@ -27,7 +27,7 @@ const SettingsPanel: React.FC<SettingsPanelProps> = ({
   const dispatch = useDispatch();
   const volume = useSelector((state: RootState) => getVolume(state));
 
-  const handleColorChangeForDrumPads = (newColor: string) => {
+  const handleColorChangeForDrumPads = (newColor: string): void => {
     const drumPads = document.querySelectorAll(".drum-pad");
     drumPads.forEach((drumPad) => {
       (drumPad as HTMLElement).style.boxShadow = `1px 0px 8px ${newColor}`;
@@ -37,6 +37,10 @@ const SettingsPanel: React.FC<SettingsPanelProps> = ({
   };
 
   const handleChangeColor = (e: React.MouseEvent<HTMLButtonElement>) => {
+    if (!isTurnedOn) {
+      return;
+    }
+
     e.currentTarget.style.boxShadow = "1px 1px 2px rgba(0, 0, 0, 0.8)";
     const newColor = generateRandomColor();
     dispatch(changeColor(newColor));

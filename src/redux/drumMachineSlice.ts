@@ -7,6 +7,9 @@ const drumMachineSlice = createSlice({
   name: "drumMachine",
   initialState,
   reducers: {
+    changeOldColor(state, action: PayloadAction<string>) {
+      state.oldColor = action.payload;
+    },
     changeColor(state, action: PayloadAction<string>) {
       state.color = action.payload;
     },
@@ -15,6 +18,9 @@ const drumMachineSlice = createSlice({
     },
     toggleIsTurnedOn(state) {
       state.isTurnedOn = !state.isTurnedOn;
+    },
+    toggleIsPressed(state) {
+      state.isPressed = !state.isPressed;
     },
     addActiveDrumPad(state, action: PayloadAction<string>) {
       state.activeDrumPad = action.payload;
@@ -31,7 +37,7 @@ const drumMachineSlice = createSlice({
 const persistConfig = {
   key: "drumMachine",
   storage,
-  // blacklist: ["dataSounds"],
+  blacklist: ["isPressed"],
 };
 
 export const persistedDrumMachineReducer = persistReducer(
@@ -40,19 +46,25 @@ export const persistedDrumMachineReducer = persistReducer(
 );
 
 export const {
+  changeOldColor,
   changeColor,
   changeVolume,
   toggleIsTurnedOn,
+  toggleIsPressed,
   addActiveDrumPad,
   changeDataSounds,
   changeCheckedRadio,
 } = drumMachineSlice.actions;
 
+export const getOldColor = (state: { drumMachine: DrumMachineState }) =>
+  state.drumMachine.color;
 export const getColor = (state: { drumMachine: DrumMachineState }) =>
   state.drumMachine.color;
 export const getVolume = (state: { drumMachine: DrumMachineState }) =>
   state.drumMachine.volume;
 export const getIsTurnedOn = (state: { drumMachine: DrumMachineState }) =>
+  state.drumMachine.isTurnedOn;
+export const getIsPressed = (state: { drumMachine: DrumMachineState }) =>
   state.drumMachine.isTurnedOn;
 export const getActiveDrumPad = (state: { drumMachine: DrumMachineState }) =>
   state.drumMachine.activeDrumPad;

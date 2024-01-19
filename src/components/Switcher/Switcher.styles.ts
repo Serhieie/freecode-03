@@ -4,10 +4,7 @@ interface SwitcherStylesProps {
   isTurnedOn: boolean;
 }
 
-export const SwitcherStyles =
-  styled.div <
-  SwitcherStylesProps >
-  `
+export const SwitcherStyles = styled.div<SwitcherStylesProps>`
   margin-left: auto;
   background-color: #1e293b;
   width: 50px;
@@ -31,12 +28,10 @@ export const SwitcherStyles =
 
 interface SwitchButtonProps {
   color: string;
+  isTurnedOn: boolean;
 }
 
-export const SwitchButton =
-  styled.button <
-  SwitchButtonProps >
-  `
+export const SwitchButton = styled.button<SwitchButtonProps>`
   outline: none;
   transition: all 300ms ease-in-out;
   color: #475569;
@@ -55,7 +50,7 @@ export const SwitchButton =
   }
 
   svg.volumeHigh {
-    color: ${(props) => `${props.color}`};
+    color: ${(props) => `${props.isTurnedOn ? props.color : "#a0a6af"}`};
     right: 4px;
   }
 

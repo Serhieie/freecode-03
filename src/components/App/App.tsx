@@ -21,24 +21,6 @@ export const App: React.FC = () => {
 
   body.style.color = color;
 
-  // Key Up
-  const handleKeyUp = useCallback(
-    (e: React.KeyboardEvent) => {
-      const audioId = e.code.toUpperCase();
-      const audioElement = document.querySelector(`audio[data-id="${audioId}"]`);
-
-      if (audioElement instanceof HTMLAudioElement) {
-        const parentElement = audioElement.parentNode as HTMLElement;
-        parentElement.style.backgroundColor = "#1e293b";
-        parentElement.style.color = color;
-        parentElement.style.boxShadow = `1px 0px 8px ${color}`;
-      }
-    },
-    [color]
-  );
-
-  useKeyPress("keyup", handleKeyUp, [handleKeyUp]);
-
   // Key Down
   const handleKeyDown = useCallback(
     (e: React.KeyboardEvent) => {
@@ -65,6 +47,24 @@ export const App: React.FC = () => {
   );
 
   useKeyPress("keydown", handleKeyDown, [handleKeyDown]);
+
+  // Key Up
+  const handleKeyUp = useCallback(
+    (e: React.KeyboardEvent) => {
+      const audioId = e.code.toUpperCase();
+      const audioElement = document.querySelector(`audio[data-id="${audioId}"]`);
+
+      if (audioElement instanceof HTMLAudioElement) {
+        const parentElement = audioElement.parentNode as HTMLElement;
+        parentElement.style.backgroundColor = "#1e293b";
+        parentElement.style.color = color;
+        parentElement.style.boxShadow = `1px 0px 8px ${color}`;
+      }
+    },
+    [color]
+  );
+
+  useKeyPress("keyup", handleKeyUp, [handleKeyUp]);
 
   return (
     <DrumMachineStyles id="drum-machine" color={color}>

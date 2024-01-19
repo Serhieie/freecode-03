@@ -40,7 +40,7 @@ export const VolumeBar: React.FC<VolumeBarProps> = ({ isTurnedOn, volume, color 
       <FaVolumeXmark
         className="volumeDown"
         size={20}
-        style={{ color: volume <= 0.1 ? color : "#a0a6af" }}
+        style={{ color: volume <= 0.1 && isTurnedOn ? color : "#a0a6af" }}
       />
 
       <VolumeInput
@@ -54,7 +54,7 @@ export const VolumeBar: React.FC<VolumeBarProps> = ({ isTurnedOn, volume, color 
       <FaVolumeHigh
         className="volumeUp"
         size={20}
-        style={{ color: volume >= 0.9 ? color : "#a0a6af" }}
+        style={{ color: volume >= 0.9 && isTurnedOn ? color : "#a0a6af" }}
       />
     </VerticalSliderContainer>
   );

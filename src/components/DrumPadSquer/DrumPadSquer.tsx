@@ -7,6 +7,7 @@ import {
   getColor,
   getIsTurnedOn,
   addActiveDrumPad,
+  getIsPressed,
 } from "../../redux/drumMachineSlice";
 
 type RootState = {
@@ -19,6 +20,7 @@ export const DrumPadSquer: React.FC = () => {
   const dataSounds = useSelector((state: RootState) => state.drumMachine.dataSounds);
   const volume = useSelector(getVolume);
   const isTurnedOn = useSelector(getIsTurnedOn);
+  const isPressed = useSelector(getIsPressed);
 
   const handleClick = (id: string): void => {
     const drumPad = document.getElementById(id);
@@ -62,6 +64,8 @@ export const DrumPadSquer: React.FC = () => {
           id={id}
           color={color}
           data-chose={keyToCheck}
+          isTurnedOn={isTurnedOn}
+          isPressed={isPressed}
         >
           <audio className="clip" id={key} data-id={keyToCheck} src={audioSrc}></audio>
           {key}

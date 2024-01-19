@@ -14,7 +14,7 @@ export const RadioContainer = styled.div`
   flex-direction: column;
   flex-wrap: wrap;
   height: 80px;
-  gap: 8px;
+  gap: 10px;
 
   @media (max-width: 768px) {
     position: static;
@@ -27,30 +27,36 @@ export const RadioContainer = styled.div`
   }
 `;
 
-export const RadioInput = styled.input`
+interface RadioInputProps {
+  color: string;
+  isTurnedOn: boolean;
+}
+
+export const RadioInput = styled.input<RadioInputProps>`
+  background-color: #1e2e47;
   appearance: none;
   -webkit-appearance: none;
   outline: none;
   border: 1px solid #475569;
   border-radius: 50%;
-  width: 14px;
-  height: 14px;
-  margin-right: 8px;
+  width: 8px;
+  height: 8px;
+  margin-right: 6px;
   cursor: pointer;
   transition: background-color 0.3s;
 
   &:checked {
-    background-color: #1e293b;
+    background-color: ${(props) => `${props.isTurnedOn ? props.color : "#1e2e47"}`};
   }
 
   &:hover {
-    background-color: #475569;
+    background-color: rgba(0, 0, 0, 0.5);
   }
 `;
 
 export const RadioLabel = styled.label`
   display: flex;
-  align-items: center;
+  align-items: baseline;
   color: #a0a6af;
   cursor: pointer;
   user-select: none;

@@ -17,6 +17,7 @@ export const VerticalSliderContainer = styled.div<VerticalSliderContainerProps>`
     bottom: 2px;
     position: absolute;
     transform: rotate(90deg);
+    transition: all 300ms ease-in-out;
     @media (max-width: 768px) {
       bottom: -6px;
       transform: rotate(0deg);
@@ -27,6 +28,7 @@ export const VerticalSliderContainer = styled.div<VerticalSliderContainerProps>`
     bottom: 2px;
     position: absolute;
     transform: rotate(90deg);
+    transition: all 300ms ease-in-out;
 
     @media (max-width: 768px) {
       bottom: -6px;

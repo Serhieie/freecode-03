@@ -12,11 +12,15 @@ import {
   changeDataSounds,
   getCheckedRadio,
   changeCheckedRadio,
+  getColor,
+  getIsTurnedOn,
 } from "../../../redux/drumMachineSlice";
 
 export const RadioButtons: React.FC = () => {
   const dispatch = useDispatch();
   const activeRadio = useSelector(getCheckedRadio);
+  const color = useSelector(getColor);
+  const isTurnedOn = useSelector(getIsTurnedOn);
 
   const handleDrumTypeChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
@@ -41,74 +45,26 @@ export const RadioButtons: React.FC = () => {
         return dispatch(changeDataSounds(drumPadsDataFreeCode));
     }
   };
+
+  const sets = ["Basic", "Tom", "Perc", "Clap", "Openhat", "Mixed"];
+
   return (
     <RadioContainer>
-      <RadioLabel>
-        <RadioInput
-          onChange={handleDrumTypeChange}
-          id="basic"
-          type="radio"
-          name="drumType"
-          value="basic"
-          checked={activeRadio === "basic"}
-        />
-        Basic
-      </RadioLabel>
-      <RadioLabel>
-        <RadioInput
-          onChange={handleDrumTypeChange}
-          id="tom"
-          type="radio"
-          name="drumType"
-          value="tom"
-          checked={activeRadio === "tom"}
-        />
-        Tom
-      </RadioLabel>
-      <RadioLabel>
-        <RadioInput
-          onChange={handleDrumTypeChange}
-          id="Perc"
-          type="radio"
-          name="drumType"
-          value="perc"
-          checked={activeRadio === "perc"}
-        />
-        Perc
-      </RadioLabel>
-      <RadioLabel>
-        <RadioInput
-          onChange={handleDrumTypeChange}
-          id="Clap"
-          type="radio"
-          name="drumType"
-          value="clap"
-          checked={activeRadio === "clap"}
-        />
-        Clap
-      </RadioLabel>
-      <RadioLabel>
-        <RadioInput
-          onChange={handleDrumTypeChange}
-          id="Openhat"
-          type="radio"
-          name="drumType"
-          value="openhat"
-          checked={activeRadio === "openhat"}
-        />
-        Openhat
-      </RadioLabel>
-      <RadioLabel>
-        <RadioInput
-          onChange={handleDrumTypeChange}
-          id="Mixed"
-          type="radio"
-          name="drumType"
-          value="mixed"
-          checked={activeRadio === "mixed"}
-        />
-        Mixed
-      </RadioLabel>
+      {sets.map((set, i) => (
+        <RadioLabel key={set + i}>
+          <RadioInput
+            onChange={handleDrumTypeChange}
+            id={set.toLowerCase()}
+            type="radio"
+            name="drumType"
+            value={set.toLowerCase()}
+            checked={activeRadio === set.toLowerCase()}
+            color={color}
+            isTurnedOn={isTurnedOn}
+          />
+          {set}
+        </RadioLabel>
+      ))}
     </RadioContainer>
   );
 };
